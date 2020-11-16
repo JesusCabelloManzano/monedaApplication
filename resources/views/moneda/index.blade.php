@@ -45,12 +45,12 @@
     @foreach ($monedas as $moneda)
         <tr>
             <td scope="row">{{ $moneda->id }}</td>
-            <a href="mailto:"></a><td>{{ $moneda->nombre }}</td>
+            <td>{{ $moneda->nombre }}</td>
             <td>{{ $moneda->simbolo }}</td>
             <td>{{ $moneda->pais }}</td>
             <td>{{ $moneda->valor }}</td>
             <td>{{ $moneda->fechacreacion }}</td>
-            <td><a href="#" data-id="{{ $moneda->id }}" class="enlaceBorrar" >delete</a></td>
+            <td><a href="#" data-id="{{ $moneda->id }}" data-name="{{ $moneda->nombre }}" data-table="moneda" id="enlaceBorrar" >delete</a></td>
         </tr>
     @endforeach
     </tbody>

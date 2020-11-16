@@ -11,5 +11,5 @@ class Moneda extends Model
     
     protected $table = 'moneda';
     
-    protected $fillable = ['nombre', 'simbolo', 'pais', 'cambio', 'fechacreacion'];
+    protected $fillable = ['nombre', 'simbolo', 'pais', 'valor', 'fechacreacion'];
 }

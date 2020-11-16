@@ -28,7 +28,7 @@
     @csrf
     <div class="card-body">
         <div class="form-group">
-            <label for="name">Nombre</label>
+            <label for="nombre">Nombre</label>
             <input type="text" maxlength="60" minlength="2" required class="form-control" id="nombre" placeholder="Nombre de la moneda" name="nombre" value="{{ old('nombre') }}">
         </div>
         <div class="form-group">
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
             <label for="pais">Pais</label>
-            <input type="string" maxlength="100" required class="form-control" id="pais" name="pais" placeholder="Pais de la moneda" value="{{ old('pais') }}">
+            <input type="text" maxlength="100" required class="form-control" id="pais" name="pais" placeholder="Pais de la moneda" value="{{ old('pais') }}">
         </div>
         <div class="form-group">
             <label for="valor">Valor</label>
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
             <label for="fechacreacion">Fecha creacion</label>
-            <input type="date" class="form-control" id="fechacreacion" name="fechacreacion" value="{{ old('fechacreacion') }}" nullable>
+            <input type="date" class="form-control" id="fechacreacion" name="fechacreacion" value="{{ old('fechacreacion') }}">
         </div>
     </div>
     <!-- /.card-body -->

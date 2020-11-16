@@ -36,7 +36,18 @@ class MonedaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $moneda = new Moneda($request->all());
+        try {
+            $result = $moneda->save();
+        } catch(\Exception $e) {
+            $result = 0;
+        }
+        if($moneda->id > 0) {
+            $response = ['op' => 'create', 'r' => $result, 'id' => $moneda->id];
+            return redirect('moneda')->with($response);
+        } else {
+            return back()->withInput()->with(['error' => 'algo ha fallado']);
+        }
     }
 
     /**
