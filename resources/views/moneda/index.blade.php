@@ -38,6 +38,8 @@
             <th scope="col">pais</th>
             <th scope="col">valor</th>
             <th scope="col">fecha Creacion</th>
+            <th scope="col">show</th>
+            <th scope="col">edit</th>
             <th scope="col">delete</th>
         </tr>
     </thead>
@@ -50,7 +52,9 @@
             <td>{{ $moneda->pais }}</td>
             <td>{{ $moneda->valor }}</td>
             <td>{{ $moneda->fechacreacion }}</td>
-            <td><a href="#" data-id="{{ $moneda->id }}" data-name="{{ $moneda->nombre }}" data-table="moneda" id="enlaceBorrar" >delete</a></td>
+            <td><a href="{{ url('moneda/' . $moneda->id) }}">show</a></td>
+            <td><a href="{{ url('moneda/' . $moneda->id . '/edit') }}">edit</a></td>
+            <td><a href="#" data-id="{{ $moneda->id }}" data-name="{{ $moneda->nombre }}" data-table="moneda" class="enlaceBorrar" >delete</a></td>
         </tr>
     @endforeach
     </tbody>

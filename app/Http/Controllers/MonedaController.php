@@ -56,9 +56,9 @@ class MonedaController extends Controller
      * @param  \App\Models\Euro  $euro
      * @return \Illuminate\Http\Response
      */
-    public function show(Monedas $moneda)
+    public function show(Moneda $moneda)
     {
-        //
+        return view('moneda.show', ['moneda' => $moneda]);
     }
 
     /**
@@ -69,7 +69,7 @@ class MonedaController extends Controller
      */
     public function edit(Moneda $moneda)
     {
-        //
+         return view('moneda.edit', ['moneda' => $moneda]);
     }
 
     /**
@@ -81,15 +81,19 @@ class MonedaController extends Controller
      */
     public function update(Request $request, Moneda $moneda)
     {
-        //
+        try {
+            $result = $moneda->update($request->all());
+        } catch (\Exception $e) {
+            $result = 0;
+        }
+        if($result) {
+            $response = ['op' => 'update', 'r' => $result, 'id' => $moneda->id];
+            return redirect('moneda')->with($response);
+        } else {
+            return back()->withInput()->with(['error' => 'algo ha fallado']);
+        }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Euro  $euro
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Moneda $moneda)
     {
         $id = $moneda->id;

@@ -21,7 +21,9 @@
     
     function getClassConfirmation(event) {
         let id = event.target.dataset.id; //data-id
-        let retVal = confirm('Sure to delete the enterprise number #' + id + '?');
+        let name = event.target.dataset.name; //data-name
+        let table = event.target.dataset.table;
+        let retVal = confirm('Sure to delete the ' + table + ' with name ' + name + ' with id ' + id + '?');
         if(retVal) {
             var formDelete = document.getElementById('formDelete');
             formDelete.action += '/' + id;
